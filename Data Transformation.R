@@ -78,3 +78,7 @@ select(flights, -(year)) #selection of all columns except year
 ## matches()
 ## num_range()
 
+## rename(<DATA>, <NEW NAME> = <VARIABLE>) changes the name of one variable
+## example:
+rename(flights, tail_num = tailnum)
+
