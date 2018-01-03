@@ -7,7 +7,7 @@ View(flights)
 
 ### 1. FILTER
 
-## filter (<DATA>, <EXPRESSION>,<EXPRESSION>)
+## filter (<DATA>, <EXPRESSION>,<EXPRESSION>...)
 ## Operators: < <= > >= == !=
 ## example:
 
@@ -44,14 +44,37 @@ jan1 <- filter (flights, month == 1)
 ## near(<VALUE>,<VALUE>)
 ## between(<VARIABLE>, <LEFT BOUND>, <RIGHT BOUND>)
 
+
 ### 2. ARRANGE
 
-## arrange (<DATA>, <VARIABLE>,<VARIABLE>,<VARIABLE> )
+## arrange (<DATA>, <VARIABLE>,<VARIABLE>,<VARIABLE> ...)
 ## arrange will sort the data in ascending order according to the first variable
 ## the subsequent variables are used to break ties
 ## example:
 (fastestflights <- arrange(flights, dep_delay+arr_delay))
 View(fastestflights)
 
+## In order to sort from lowest to highest use desc()
+## example:
+(slowestflights <- arrange(flights, desc(dep_delay+arr_delay)))
+View(slowestflights)
 
+
+### 3. SELECT
+
+## select (<DATA>, <VARIABLE>,<VARIABLE>,<VARIABLE> ...)
+## select will produce the original dataset with only the variables you want
+## example:
+select(flights, day, month, year) #selection by name
+
+select(flights, year:day) #selection of all columns between year and day (inclusive)
+
+select(flights, -(year)) #selection of all columns except year
+
+## Other helper functions you can use with select:
+## starts_with ()
+## ends_with ()
+## contains()
+## matches()
+## num_range()
 
