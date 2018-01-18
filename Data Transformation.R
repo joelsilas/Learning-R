@@ -165,11 +165,14 @@ summarise(by_day, delay = floor(mean(dep_delay, na.rm = TRUE)))
 ## third example we take out the data points that have low counts.
 ## example 1
 
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+
 delays <- not_cancelled %>% 
   group_by(tailnum) %>% 
   summarise(
     delay = mean(arr_delay)
-  )
+    )
 
 ggplot(data = delays, mapping = aes(x = delay)) + 
   geom_freqpoly(binwidth = 10)
