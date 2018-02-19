@@ -12,3 +12,6 @@ object_name <-  value # Note you keyboard shortcut Alt + - (minus sign)
 seq(1,10)
 
 ## Note in R studio pree ALT + Shift + K to access all the possible shortcuts
+
+
+## CTR + SHIFT + S reruns your entire script
